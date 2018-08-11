@@ -12,7 +12,7 @@ public class RoboUtilitiesImpl implements RoboUtilties {
 			try {
 				throw new Exception("Battery Less than 15% !!");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
+				
 				e.printStackTrace();
 			}
 		}

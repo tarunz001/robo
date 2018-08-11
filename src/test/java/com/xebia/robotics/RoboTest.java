@@ -24,14 +24,16 @@ public class RoboTest {
 		robo.setBarCode("dssdxce32");
 		robo.setBatteryVolts(100);
 		robo.setDistanceCovered(5);
-		robo.setWeightCapacity(7);
+		robo.setWeightCapacity(17);
 		
 	}
 	
 	@Test
 	public void testRobo()
 	{
-		roboUtils.checkBatteryStatus(robo);
+		if(roboUtils.checkRoboStatus(robo)==null)
+			fail("Your Robo Has Issues");
+
 	}
 	
 

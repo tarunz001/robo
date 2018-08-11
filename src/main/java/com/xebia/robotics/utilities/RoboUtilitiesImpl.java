@@ -4,17 +4,12 @@ import com.xebia.robotics.Robot;
 
 public class RoboUtilitiesImpl implements RoboUtilties {
 
-	@Override
+	//@Override
 	public int checkBatteryStatus(Robot robo) {
 		
 		if(robo.getBatteryVolts()<=15)
 		{
-			try {
-				throw new Exception("Battery Less than 15% !!");
-			} catch (Exception e) {
-				
-				e.printStackTrace();
-			}
+			return -1;
 		}
 		else{
 			
@@ -31,17 +26,12 @@ public class RoboUtilitiesImpl implements RoboUtilties {
 		return 0;
 	}
 
-	@Override
+	//@Override
 	public int checkWeightCapacityStatus(Robot robo) {
 		
 		if(robo.getWeightCapacity()>=10)
 		{
-			try {
-				throw new Exception("Alarm: Overweight");
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			return -1;
 		}
 		else{
 			
@@ -58,13 +48,20 @@ public class RoboUtilitiesImpl implements RoboUtilties {
 		return 0;
 	}
 
-	@Override
+	//@Override
 	public void scanBarCode(BarCodeScanner barCode) {
 		if(barCode!=null)
 		{
 			System.out.println("Thanks. Please provide feedback and Enjoy the Services!");
 		}
 		
+	}
+
+	@Override
+	public String checkRoboStatus(Robot robo) {
+		if(checkBatteryStatus(robo)!=-1 && checkWeightCapacityStatus(robo)!=-1)
+		return "Ok";
+		return null;
 	}
 
 	
